@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F8F5F2;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100vw;
+}
+
+h1 {
+  color: #8D3B72;
+  margin-top: 1vw;
+  margin-bottom: 0vw;
+  font-size: 7vw;
+  font-family: 'Cabin Sketch';
+  font-weight: 700;
+  text-shadow: black .3px .3px;
+  
+}
+
+#game-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100vh;
+  padding: 0px;
+}
+
+.card {
+  flex: 0 0 calc(10%);
+  height: calc(40%);
+  margin: .8%;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #2F7CC2;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2vw;
+  font-family: 'Cabin Sketch';
+  font-weight: 700;
+  text-shadow: black .4px .4px;
+}
+
+.card-back {
+  background-color: #fff;
+  color: #8D3B72;
+  border: 1px solid #8D3B72;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2vw;
+  transform: rotateY(180deg);
+  font-family: 'Bubblegum Sans';
+  font-weight: 700;
+}
+
+#win-message {
+  font-size: 18vw;
+  font-weight: bold;
+  margin-top: 20px;
+  display: none;
+  text-align: center;
+  font-family: 'Cabin Sketch';
+  color: #8D3B72;
+  text-shadow: black 1px 1px;
+  animation: blinkingText 1s infinite;
+}
+
+@keyframes blinkingText {
+  0% {color:#8D3B72}
+  25% {color:#2F7CC2}
+  50% {color:#8D3B72}
+  75% {color:#2F7CC2}
+}
+
